@@ -8,6 +8,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Enhanced DebugHUD with performance metrics tracking
+  - Min/Max FPS tracking
+  - Average frame time calculation
+  - Session time counter
+  - Total frames counter
+  - Detailed performance statistics
+- Enhanced ParticleSystem with multiple particle types
+  - MUZZLE_FLASH: Orange/yellow particles for weapon firing
+  - SPARK: Yellow sparks for impact effects
+  - SMOKE: Gray smoke particles with rising behavior
+  - EXPLOSION: Spherical particle distribution for explosions
+- Particle type-specific behaviors
+  - Different lifetimes and sizes per type
+  - Type-specific physics (smoke rises, explosions expand)
+  - Enhanced visual variety
+- Active particle counter for performance monitoring
+- Frame time tracking for performance analysis
+- Multi-type particle emission on weapon fire (muzzle flash + sparks + smoke)
+
+## [1.0.0] - 2026-06-25
+
+### Added
 - Complete FPS game implementation with C++ and OpenGL
 - Fixed timestep game loop for consistent physics
 - WASD movement controls
