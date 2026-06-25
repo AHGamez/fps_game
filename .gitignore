@@ -1,19 +1,20 @@
 # Build directories
 build/
-bin/
-lib/
+obj/
+
+# Object files
 *.o
-*.a
-*.so
-*.dylib
+*.obj
+
+# Exclude lib and dll globally
+*.lib
 *.dll
 
-# CMake
-CMakeCache.txt
-CMakeFiles/
-cmake_install.cmake
-Makefile
-*.cmake
+# But include them in external/ and bin/
+!external/**/*.lib
+!external/**/*.dll
+!bin/**/*.lib
+!bin/**/*.dll
 
 # IDE files
 .vscode/
@@ -23,15 +24,51 @@ Makefile
 *~
 .DS_Store
 
-# Executables
-fps_game
-fps_game.exe
-
-# Debug files
-*.dSYM/
-*.su
-*.idb
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+*.VC.db
+*.VC.VC.opendb
+*.ilk
+*.meta
+*.iobj
+*.pch
 *.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.tlog
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# Executables
+*.exe
+*.out
+*.app
 
 # Compilation database
 compile_commands.json
