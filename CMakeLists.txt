@@ -61,7 +61,6 @@ target_link_libraries(fps_game
 
 # Platform-specific settings
 if(UNIX AND NOT APPLE)
-    target_link_libraries(fps_game GL GLU glut)
 endif()
 
 # Set output directory
