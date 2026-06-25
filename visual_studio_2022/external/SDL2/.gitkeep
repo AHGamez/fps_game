@@ -1,9 +1,0 @@
-# SDL2 Development Libraries Go Here
-
-Download SDL2 from: https://github.com/libsdl-org/SDL/releases/latest
-
-Extract and place:
-- SDL2 headers in: external/SDL2/include/
-- SDL2 libraries in: external/SDL2/lib/x64/
-
-See SETUP_INSTRUCTIONS.md for detailed steps.
