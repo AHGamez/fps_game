@@ -1,6 +1,6 @@
 #include "Game.h"
 #include <iostream>
-#include <SDL2/SDL.h>
+#include "SDL.h"
 
 Game::Game()
     : window(nullptr), renderer(nullptr), player(nullptr), map(nullptr),
