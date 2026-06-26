@@ -6,7 +6,7 @@
 ParticleSystem::ParticleSystem(int maxParticles)
     : maxParticles(maxParticles), nextParticleIndex(0) {
     particles.resize(maxParticles);
-    std::srand(std::time(nullptr));
+    std::srand(static_cast<unsigned int>(std::time(nullptr)));
 }
 
 void ParticleSystem::emit(const Vector3& position, const Vector3& direction, int count) {
