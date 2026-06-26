@@ -1,9 +1,15 @@
 #include "Renderer.h"
+
 #ifdef _WIN32
+#ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
+#endif
+#ifndef NOMINMAX
 #define NOMINMAX
+#endif
 #include <windows.h>
 #endif
+
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <sstream>
@@ -187,8 +193,8 @@ void Renderer::renderHUD(const Player& player, float fps) {
         glEnd();
     }
     
-    renderText("Press F1 for Debug Info", 10, height - 40);
-    renderText("Controls: WASD=Move, Mouse=Look, LMB=Shoot, R=Reload, Space=Jump", 10, height - 20);
+    renderText("Press F1 for Debug Info", 10, static_cast<float>(height) - 40);
+    renderText("Controls: WASD=Move, Mouse=Look, LMB=Shoot, R=Reload, Space=Jump", 10, static_cast<float>(height) - 20);
 }
 
 void Renderer::renderDebugHUD(const DebugHUD& debugHUD) {
@@ -236,7 +242,7 @@ static const unsigned char font8x8[96][8] = {
     {0x18,0x3C,0x3C,0x18,0x18,0x00,0x18,0x00}, // !
     {0x36,0x36,0x00,0x00,0x00,0x00,0x00,0x00}, // "
     {0x36,0x36,0x7F,0x36,0x7F,0x36,0x36,0x00}, // #
-    {0x0C,0x3E,0x03,0x1E,0x30,0x1F,0x0C,0x00}, // $
+    {0x0C,0x3E,0x03,0x1E,0x30,0x1F,0x0C,0x00}, // $`
     {0x00,0x63,0x33,0x18,0x0C,0x66,0x63,0x00}, // %
     {0x1C,0x36,0x1C,0x6E,0x3B,0x33,0x6E,0x00}, // &
     {0x06,0x06,0x03,0x00,0x00,0x00,0x00,0x00}, // '

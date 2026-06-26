@@ -1,6 +1,17 @@
 #include "Window.h"
-#include <GL/gl.h>
 #include <iostream>
+
+#ifdef _WIN32
+#ifndef WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
+#endif
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+#include <windows.h>
+#endif
+
+#include <GL/gl.h>
 
 Window::Window(const std::string& title, int width, int height)
     : window(nullptr), glContext(nullptr), title(title), width(width), height(height) {
