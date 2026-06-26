@@ -7,13 +7,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Find required packages
 find_package(SDL2 REQUIRED)
 find_package(OpenGL REQUIRED)
-find_package(GLUT REQUIRED)
+
 
 # Include directories
 include_directories(
     ${SDL2_INCLUDE_DIRS}
     ${OPENGL_INCLUDE_DIRS}
-    ${GLUT_INCLUDE_DIRS}
+    
     ${CMAKE_SOURCE_DIR}/include
 )
 
@@ -56,12 +56,11 @@ add_executable(fps_game ${SOURCES} ${HEADERS})
 target_link_libraries(fps_game
     ${SDL2_LIBRARIES}
     ${OPENGL_LIBRARIES}
-    ${GLUT_LIBRARIES}
+    
 )
 
 # Platform-specific settings
 if(UNIX AND NOT APPLE)
-    target_link_libraries(fps_game GL GLU glut)
 endif()
 
 # Set output directory
