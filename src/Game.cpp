@@ -1,6 +1,6 @@
 #include "Game.h"
 #include <iostream>
-#include <SDL2/SDL.h>
+#include "SDL.h"
 
 Game::Game()
     : window(nullptr), renderer(nullptr), player(nullptr), map(nullptr),
@@ -49,6 +49,9 @@ void Game::run() {
         }
         
         accumulator += deltaTime;
+        
+        // Track frame time for debug HUD
+        debugHUD->addFrameTime(deltaTime);
         
         // Fixed timestep update
         while (accumulator >= FIXED_TIMESTEP) {
@@ -108,10 +111,15 @@ void Game::processInput() {
     if (inputHandler.isMouseButtonJustPressed(SDL_BUTTON_LEFT)) {
         if (player->getWeapon().canFire()) {
             player->shoot();
-            // Emit particles
+            // Emit enhanced particles
             Vector3 shootPos = player->getCamera().getPosition() + 
                               player->getCamera().getForward() * 0.5f;
-            particleSystem->emit(shootPos, player->getCamera().getForward(), 10);
+            // Muzzle flash
+            particleSystem->emitTyped(shootPos, player->getCamera().getForward(), 8, ParticleType::MUZZLE_FLASH);
+            // Sparks
+            particleSystem->emitTyped(shootPos, player->getCamera().getForward(), 5, ParticleType::SPARK);
+            // Smoke trail
+            particleSystem->emitTyped(shootPos, player->getCamera().getForward(), 3, ParticleType::SMOKE);
         }
     }
     
